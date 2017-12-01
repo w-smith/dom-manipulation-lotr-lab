@@ -28,6 +28,17 @@ function makeMiddleEarth() {
   // inside, add each land as an article tag
   // inside each article tag include an h1 with the name of the land
   // append middle-earth to your document body
+
+var middleEarth = document.createElement("section"); 
+// console.log("makeMiddleEarth"); 
+for (var i = 0; i < lands.length; i++) {
+  var newLands = document.createElement("article");
+  var header = document.createElement("h1");
+  header.innerText = lands[i];
+  newLands.appendChild(header);
+  middleEarth.appendChild(newLands);
+}
+body.appendChild(middleEarth);
 }
 
 makeMiddleEarth();
@@ -38,8 +49,26 @@ makeMiddleEarth();
 function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
   // give each hobbit a class of hobbit
+  var list = document.createElement("ul");
+  // console.log("makeHobbits");
+  for (var i=0; i < hobbits.length; i++) {
+    var shireHobbit = document.createElement("li");
+    shireHobbit.innerText = hobbits[i];
+    list.appendChild(shireHobbit);
+
+  }
+
+var shire = document.querySelectorAll('article')[0];
+shire.appendChild(list);
+
+
+  
+
+
 }
 
+
+makeHobbits();
 
 // Part 3
 
@@ -48,6 +77,10 @@ function keepItSecretKeepItSafe() {
   // give the div a class of 'magic-imbued-jewelry'
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
   // add the ring as a child of Frodo
+
+var oneRing = document.createElement("div");
+
+
 }
 
 
