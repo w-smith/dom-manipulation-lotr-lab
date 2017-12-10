@@ -47,23 +47,27 @@ makeMiddleEarth();
 // Part 2
 
 function makeHobbits() {
+
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
   // give each hobbit a class of hobbit
-  var list = document.createElement("ul");
+  var hobbitList = document.createElement("ul");
+  hobbitList.setAttribute("id" , "hobbitList");
+
+
   // console.log("makeHobbits");
-  for (var i=0; i < hobbits.length; i++) {
-    var shireHobbit = document.createElement("li");
-    shireHobbit.innerText = hobbits[i];
-    shireHobbit.setAttribute("id", 'hobbit' + i);
-    list.appendChild(shireHobbit);
+
+
+  for (var i = 0; i < hobbits.length; i++) {
+    var li = document.createElement("li");
+    li.innerText = hobbits[i];
+    li.setAttribute ("id" , "hobbit" + i);
+   
+    hobbitList.appendChild(li);
 
   }
 
 var shire = document.querySelectorAll('article')[0];
-shire.appendChild(list);
-
-
-  
+shire.appendChild(hobbitList);
 
 
 }
@@ -72,28 +76,25 @@ shire.appendChild(list);
 makeHobbits();
 
 // Part 3
-
 function keepItSecretKeepItSafe() {
   // create a div with an id of 'the-ring'
-  var ring = document.createElement("div");
-  ring.setAttribute("id", 'the-ring');
   // give the div a class of 'magic-imbued-jewelry'
-  ring.setAttribute("class",'magic-imbued-jewelry');
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
-  ring.addEventListener("click",function() {
-    nazgulScreech();
-    });
   // add the ring as a child of Frodo
-  var frodo = document.getElementById("hobbit0");
-  frodo.appendChild(ring);
-
-
-// var oneRing = document.createElement("div");
-
+var theRing = document.createElement("div");
+theRing.setAttribute ("id", "the-ring");
+theRing.setAttribute("class" , 'magic-imbued-jewelry');
+theRing.addEventListener("click" , function() {
+    nazgulScreech();
+  });
+var frodo = document.getElementById("hobbit0");
+frodo.appendChild(theRing);
 
 }
 
 keepItSecretKeepItSafe();
+
+
 
 // Part 4
 
@@ -105,11 +106,17 @@ function makeBuddies() {
   var buddiesUl = document.createElement("ul");
 
   for (var i=0; i < buddies.length; i++) {
-    var buds = document.createElement("li");
-
+    var buddiesLi = document.createElement("li");
+    buddiesLi.innerText = buddies[i];
+    buddiesLi.setAttribute("id" , "buddies" + i);
+    buddiesUl.appendChild(buddiesLi);
   }
-
   // insert your aside as a child element of rivendell
+    aside.appendChild(buddiesUl);
+    // console.log(aside);
+    var rivendell = document.querySelectorAll("article");
+    // console.log(rivendell);
+    rivendell[1].appendChild(aside);
 
 
 }
@@ -121,14 +128,26 @@ makeBuddies();
 
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
+  var strider = document.getElementById('buddies3');
+  strider.innerText = "Aragorn";
 }
+
+beautifulStranger();
 
 
 // Part 6
 
 function leaveTheShire() {
   // assemble the hobbits and move them to Rivendell
+
+    var hobbits = document.getElementById("hobbitList");
+    var rivendell = document.querySelectorAll("article");
+    rivendell[1].appendChild(hobbits);
+
 }
+
+leaveTheShire();
+
 
 
 // Part 7
